@@ -30,7 +30,7 @@
         .char-tag { font-size: 15px; color: #7f8c8d; font-style: italic; margin-bottom: 15px; text-align: center; }
         
         .link-container { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-        .action-btn { font-size: 15px; color: #fff; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: 0.2s; display: block; }
+        .action-btn { font-size: 15px; color: #fff; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: 0.2s; display: block; border: none; width: 100%; cursor: pointer; box-sizing: border-box; }
         .action-btn:hover { opacity: 0.8; }
         .btn-ai { background-color: #2980b9; }  
         .btn-doki { background-color: #9b59b6; }  
@@ -62,19 +62,26 @@
             </div>
             <div class="char-name">⚓ Kang Kin</div>
             <div class="char-tag">Thể loại: Kinh dị, Tàu ma, Chinh phục</div>
-            <script>
-    function copyLink() {
-        var linkText = "https://google.com";
-        navigator.clipboard.writeText(linkText).then(function() {
-            alert("https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%2217oVmhJPfUK8oo1bff5lWSOh7OLtDTvEv%22%5D,%22action%22:%22open%22,%22userId%22:%22109397191015893887365%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing");
-        }, function() {
-        });
-    }
-    </script>
+            
+            <div class="link-container">
+                <!-- Nút bấm copy link siêu sạch sẽ -->
+                <button onclick="copyLink()" class="action-btn btn-ai">📋 Copy Link Google AI Chat</button>
+                <a href="#" class="action-btn btn-doki">💬 Trò Chuyện Doki Chat</a>
             </div>
         </div>
 
     </div>
+
+    <script>
+    function copyLink() {
+        var linkText = "https://google.com";
+        navigator.clipboard.writeText(linkText).then(function() {
+            alert("🎉 Đã copy link chat của Kang Kin! Bạn hãy mở tab mới rồi dán (Ctrl + V) vào để trò chuyện nhé.");
+        }, function() {
+            alert("Lỗi copy. Hãy copy tay link này: " + linkText);
+        });
+    }
+    </script>
 
 </body>
 </html>
