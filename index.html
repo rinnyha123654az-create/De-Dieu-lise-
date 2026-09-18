@@ -4,13 +4,85 @@
     <title>Tửu lầu của Élise</title>
     <meta charset="UTF-8">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; background-color: #fefcf5; }
-        h1 { color: #cc3300; font-size: 32px; }
-        p { color: #333; font-size: 20px; font-style: italic; }
+        body { font-family: 'Arial', sans-serif; text-align: center; margin-top: 40px; background-color: #fefcf5; color: #333; }
+        h1 { color: #cc3300; font-size: 32px; margin-bottom: 5px; animation: glow 2s ease-in-out infinite alternate; }
+        .slogan { color: #666; font-size: 20px; font-style: italic; margin-bottom: 40px; }
+        
+        /* Hiệu ứng chữ lấp lánh nhẹ cho tên tiệm */
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fefcf5, 0 0 15px #cc3300; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #ff6633, 0 0 30px #cc3300; }
+        }
+
+        /* Cấu hình Thể loại hiển thị */
+        h2 { color: #4a3b32; font-size: 24px; margin-top: 40px; border-bottom: 2px solid #e6b8a2; display: inline-block; padding-bottom: 5px; }
+        .menu-container { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 20px; margin-bottom: 40px; }
+        .menu-item { background-color: #fff; border: 1px solid #e6b8a2; padding: 12px 30px; width: 250px; border-radius: 8px; font-size: 18px; color: #4a3b32; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        
+        /* Cấu hình Danh sách Thẻ Nhân Vật */
+        .char-container { display: flex; justify-content: center; gap: 30px; margin-top: 20px; margin-bottom: 50px; flex-wrap: wrap; }
+        
+        /* HIỆU ỨNG ĐỘNG CỦA KHUNG: Khi đưa chuột vào, khung tự nhấc lên và phát sáng */
+        .char-card { background-color: #fff; border: 1px solid #e6b8a2; border-radius: 16px; padding: 18px; width: 280px; box-shadow: 0 4px 10px rgba(0,0,0,0.06); text-align: left; transition: all 0.4s ease; }
+        .char-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 10px 20px rgba(204,51,0,0.2); border-color: #cc3300; }
+        
+        /* HIỆU ỨNG ĐỘNG CỦA ẢNH: Đưa chuột vào ảnh sẽ hơi phóng to */
+        .img-container { width: 100%; height: 320px; overflow: hidden; border-radius: 12px; background-color: #eee; }
+        .char-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .char-card:hover .char-img { transform: scale(1.1); }
+
+        .char-name { font-size: 22px; font-weight: bold; color: #cc3300; margin: 15px 0 5px 0; text-align: center; }
+        .char-tag { font-size: 15px; color: #7f8c8d; font-style: italic; margin-bottom: 15px; text-align: center; }
+        
+        /* Cấu hình các nút bấm link dưới ảnh */
+        .link-container { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .action-btn { font-size: 15px; color: #fff; text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: 0.2s; }
+        .action-btn:hover { opacity: 0.8; }
+        .btn-ai { background-color: #2980b9; }  
+        .btn-doki { background-color: #9b59b6; }  
     </style>
 </head>
 <body>
+
+    <!-- Lời chào trang chủ -->
     <h1>Chào mừng đến với tửu lầu của Élise</h1>
-    <p>Chúc bạn có một bữa mukbang ngon miệng! 🍜🍗🎉</p>
+    <p class="slogan">Chúc bạn có một bữa mukbang ngon miệng! 🍜🍗🎉</p>
+
+    <!-- Các thể loại hiển thị trực tiếp -->
+    <h2>📜 Các Thể Loại Tại Tửu Lầu 📜</h2>
+    <div class="menu-container">
+        <div class="menu-item">✨ Hiện đại</div>
+        <div class="menu-item">🌸 Cổ trang</div>
+        <div class="menu-item">⏳ Xuyên không</div>
+        <div class="menu-item">💞 BG / BL</div>
+        <div class="menu-item">⚔️ Chinh phục</div>
+        <div class="menu-item">🐶 Cún con</div>
+        <div class="menu-item">💍 Cưới trước yêu sau</div>
+        <div class="menu-item">🔮 Lời nguyền</div>
+    </div>
+
+    <!-- Khu vực thẻ thông tin nhân vật kèm ảnh và link chức năng -->
+    <h2>👥 Danh Sách Nhân Vật & Bản Chat 👥</h2>
+    <div class="char-container">
+        
+        <!-- CHỈ HIỂN THỊ DUY NHẤT MỘT CON KANG KIN -->
+        <div class="char-card">
+            <div class="img-container">
+                <img src="https://googleusercontent.com" class="char-img" alt="Kang Kin">
+            </div>
+            <div class="char-name">⚓ Kang Kin</div>
+            <div class="char-tag">Thể loại: Kinh dị, Tàu ma, Chinh phục</div>
+            
+            <div class="link-container">
+                <!-- Nút dẫn tới link Google AI Studio của bạn -->
+                <a href="https://google.com" target="_blank" class="action-btn btn-ai">🤖 Link Google AI Chat</a>
+                
+                <!-- Nút Doki Chat tạm thời để trống -->
+                <a href="#" target="_blank" class="action-btn btn-doki">💬 Trò Chuyện Doki Chat</a>
+            </div>
+        </div>
+
+    </div>
+
 </body>
 </html>
