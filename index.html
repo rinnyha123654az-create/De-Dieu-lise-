@@ -4,23 +4,38 @@
     <title>Tửu lầu của Élise</title>
     <meta charset="UTF-8">
     <style>
-        body { font-family: 'Arial', sans-serif; text-align: center; margin-top: 40px; background-color: #fefcf5; color: #333; }
-        h1 { color: #cc3300; font-size: 32px; margin-bottom: 5px; animation: glow 2s ease-in-out infinite alternate; }
-        .slogan { color: #666; font-size: 20px; font-style: italic; margin-bottom: 40px; }
-        
-        @keyframes glow {
-            from { text-shadow: 0 0 5px #fff, 0 0 10px #fefcf5, 0 0 15px #cc3300; }
-            to { text-shadow: 0 0 10px #fff, 0 0 20px #ff6633, 0 0 30px #cc3300; }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            text-align: center; 
+            margin: 0;
+            padding-top: 40px;
+            /* Ảnh nền hình tửu lầu cổ trang ma mị kết hợp lớp phủ đỏ */
+            background: linear-gradient(rgba(139, 0, 0, 0.8), rgba(20, 0, 0, 0.85)), url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff; 
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        h2 { color: #4a3b32; font-size: 24px; margin-top: 40px; border-bottom: 2px solid #e6b8a2; display: inline-block; padding-bottom: 5px; }
+        h1 { color: #ff3333; font-size: 36px; margin-bottom: 5px; animation: glow 2s ease-in-out infinite alternate; text-shadow: 0 0 10px #000; }
+        .slogan { color: #ffcccc; font-size: 20px; font-style: italic; margin-bottom: 40px; text-shadow: 0 0 5px #000; }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #ff3333, 0 0 20px #8b0000; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #ff6666, 0 0 40px #ff3333; }
+        }
+
+        h2 { color: #ffcccc; font-size: 24px; margin-top: 40px; border-bottom: 2px solid #ff3333; display: inline-block; padding-bottom: 5px; text-shadow: 0 0 5px #000; }
         .menu-container { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 20px; margin-bottom: 40px; }
-        .menu-item { background-color: #fff; border: 1px solid #e6b8a2; padding: 12px 30px; width: 250px; border-radius: 8px; font-size: 18px; color: #4a3b32; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .menu-item { background-color: rgba(255, 255, 255, 0.1); border: 1px solid #ff3333; padding: 12px 30px; width: 250px; border-radius: 8px; font-size: 18px; color: #fff; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2); backdrop-filter: blur(5px); }
         
-        .char-container { display: flex; justify-content: center; gap: 30px; margin-top: 20px; margin-bottom: 50px; flex-wrap: wrap; }
+        .char-container { display: flex; justify-content: center; gap: 30px; margin-top: 20px; margin-bottom: 50px; flex-wrap: wrap; position: relative; z-index: 10; }
         
-        .char-card { background-color: #fff; border: 1px solid #e6b8a2; border-radius: 16px; padding: 18px; width: 280px; box-shadow: 0 4px 10px rgba(0,0,0,0.06); text-align: left; transition: all 0.4s ease; }
-        .char-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 10px 20px rgba(204,51,0,0.2); border-color: #cc3300; }
+        .char-card { background-color: rgba(255, 255, 255, 0.95); border: 2px solid #ff3333; border-radius: 16px; padding: 18px; width: 280px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); text-align: left; transition: all 0.4s ease; color: #333; }
+        .char-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 15px 30px rgba(255,51,51,0.4); border-color: #ff3333; }
         
         .img-container { width: 100%; height: 320px; overflow: hidden; border-radius: 12px; background-color: #eee; }
         .char-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
@@ -30,13 +45,35 @@
         .char-tag { font-size: 15px; color: #7f8c8d; font-style: italic; margin-bottom: 15px; text-align: center; }
         
         .link-container { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-        .action-btn { font-size: 15px; color: #fff; text-decoration: none; padding: 14px; border-radius: 8px; font-weight: bold; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: 0.2s; display: block; box-sizing: border-box; }
+        .action-btn { font-size: 15px; color: #fff; text-decoration: none; padding: 14px; border-radius: 8px; font-weight: bold; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: 0.2s; display: block; box-sizing: border-box; }
         .action-btn:hover { opacity: 0.8; }
-        .btn-ai { background-color: #2980b9; }  
+        .btn-ai { background-color: #cc3300; border: 1px solid #ff3333; }  
         .btn-doki { background-color: #9b59b6; }  
+
+        /* HIỆU ỨNG TRÁI TIM BAY QUANH NỀN */
+        .hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
+        .heart { position: absolute; bottom: -20px; font-size: 20px; color: rgba(255, 51, 51, 0.6); animation: floatUp 6s linear infinite; text-shadow: 0 0 5px rgba(255,0,0,0.5); }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Khung chứa các trái tim bay ẩn dưới nền -->
+    <div class="hearts-bg">
+        <div class="heart" style="left: 10%; animation-delay: 0s; font-size: 24px;">❤️</div>
+        <div class="heart" style="left: 25%; animation-delay: 2s; font-size: 16px;">🖤</div>
+        <div class="heart" style="left: 40%; animation-delay: 1s; font-size: 28px;">❤️</div>
+        <div class="heart" style="left: 55%; animation-delay: 3s; font-size: 20px;">❤️</div>
+        <div class="heart" style="left: 70%; animation-delay: 0.5s; font-size: 18px;">🖤</div>
+        <div class="heart" style="left: 85%; animation-delay: 2.5s; font-size: 25px;">❤️</div>
+        <div class="heart" style="left: 95%; animation-delay: 1.5s; font-size: 15px;">❤️</div>
+    </div>
 
     <h1>Chào mừng đến với tửu lầu của Élise</h1>
     <p class="slogan">Chúc bạn có một bữa mukbang ngon miệng! 🍜🍗🎉</p>
@@ -64,7 +101,6 @@
             <div class="char-tag">Thể loại: Kinh dị, Tàu ma, Chinh phục</div>
             
             <div class="link-container">
-                <!-- Dùng thẻ liên kết thuần túy, bấm phát nhảy trang trực tiếp luôn không qua trung gian -->
                 <a href="https://google.com" class="action-btn btn-ai">🤖 Vào Chat Google AI</a>
                 <a href="#" class="action-btn btn-doki">💬 Trò Chuyện Doki Chat</a>
             </div>
